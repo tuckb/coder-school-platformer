@@ -15,6 +15,7 @@ class Circle(pygame.sprite.Sprite):
     self.rect.y = 230
     self.velocity_y = 0
     self.onGround = False
+    self.maxJump = self.rect.y - 100
 
   #updating game/inputs
   def update(self):
@@ -29,7 +30,8 @@ class Circle(pygame.sprite.Sprite):
 
     #making ball jump
     if self.jumping is True and self.rect.y > self.maxJump:
-      self.rect.y -= self.velocity_y
+      for i in range(10):
+        self.rect.y -= self.velocity_y
 
     #making ball fall
     if self.onGround is False:

@@ -1,5 +1,3 @@
-
-
 #imports
 import sys
 import pygame
@@ -61,9 +59,9 @@ while True:
         
       #key(w) inputs / jumping inputs
       if event.key == pygame.K_w:
-        if pygame.sprite.collide_rect(c,g):
+        if pygame.sprite.collide_rect(c,g) and c.jumping is False:
           c.jumping = True
-          c.velocity_y = 50
+          c.velocity_y = 3
     
     #adding the ability to check when keys are let up
     elif event.type == pygame.KEYUP:
@@ -79,6 +77,7 @@ while True:
       #checking key(w) is up
       if event.key == pygame.K_w:
         c.jumping = False
+        
 
   #screen color
   SCREEN.fill((100,180,255))
