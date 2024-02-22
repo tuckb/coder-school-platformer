@@ -7,7 +7,6 @@ class Circle(pygame.sprite.Sprite):
     super().__init__()
     self.moving_right = False
     self.moving_left = False
-    self.jumping = False
     self.image = pygame.image.load('Images/BallGuy.png')
     self.image = pygame.transform.scale(self.image, (50,50))
     self.rect = self.image.get_rect()
@@ -29,7 +28,7 @@ class Circle(pygame.sprite.Sprite):
       self.rect.x -= 1
 
     #making ball jump
-    if self.jumping is True and self.rect.y > self.maxJump:
+    if self.onGround is False and self.rect.y > self.maxJump:
       for i in range(10):
         self.rect.y -= self.velocity_y
 

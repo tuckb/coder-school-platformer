@@ -36,7 +36,6 @@ while True:
   else:
     print(c.onGround)
     c.onGround = True
-    c.jumping = False
     c.velocity_y = 0
     
 
@@ -59,8 +58,8 @@ while True:
         
       #key(w) inputs / jumping inputs
       if event.key == pygame.K_w:
-        if pygame.sprite.collide_rect(c,g) and c.jumping is False:
-          c.jumping = True
+        if c.onGround is True:
+          c.onGround = False
           c.velocity_y = 3
     
     #adding the ability to check when keys are let up
@@ -76,7 +75,7 @@ while True:
 
       #checking key(w) is up
       if event.key == pygame.K_w:
-        c.jumping = False
+        c.onGround = True
         
 
   #screen color
